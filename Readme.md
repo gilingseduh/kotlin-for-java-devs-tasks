@@ -1,0 +1,1 @@
+Contains my own solutions for programming tasks under this online course: [Kotlin for Java Developers](https://www.coursera.org/learn/kotlin-for-java-developers)
