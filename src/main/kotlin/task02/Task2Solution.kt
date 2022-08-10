@@ -1,4 +1,4 @@
-package task2
+package task02
 
 // Change the 'sum' function so that it was declared as an extension to List<Int>.
 
