@@ -7,7 +7,7 @@ var count = 0
 val foo: Int
     get() = count++
 
-fun main(args: Array<String>) {
+fun main() {
     // The values should be different:
     println(foo)
     println(foo)
