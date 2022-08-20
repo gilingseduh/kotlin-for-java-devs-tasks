@@ -1,6 +1,8 @@
 package task03
 
 import org.junit.Assert
+import week2.task03.Evaluation
+import week2.task03.evaluateGuess
 
 internal fun testEvaluation(first: String, second: String, positions: Int, letters: Int) {
     val evaluation = Evaluation(positions, letters)
