@@ -1,4 +1,4 @@
-package week5.task15
+package week5.task17
 
 // Implement the function that builds a sequence of Fibonacci numbers using 'sequence' function. Use 'yield'.
 

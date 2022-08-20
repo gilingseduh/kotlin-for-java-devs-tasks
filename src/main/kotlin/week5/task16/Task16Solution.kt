@@ -1,26 +1,35 @@
 package week5.task16
 
-// Implement member extension functions 'record' and 'unaryPlus' so that the code below compiled and stored specified words.
-// These functions should be unavailable outside the 'Words' class.
+// Write the code that the Kotlin compiler will generate while inlining the filter function (instead of calling it).
+// Note that the compiler generates Java bytecode, but for simplicity, write the similar code in Kotlin. The simplified declaration of 'filter' is given below.
 
-class Words {
-    private val list = mutableListOf<String>()
+fun filterNonZero(list: List<Int>) = list.filter { it != 0 }
 
-    fun String.record() = list.add(this)
-
-    operator fun String.unaryPlus() = record()
-
-    override fun toString() = list.toString()
+fun filterNonZeroGenerated(list: List<Int>): List<Int> {
+    val destination = ArrayList<Int>()
+    for (element in list) {
+        if (element != 0) {
+            destination.add(element)
+        }
+    }
+    return destination
 }
 
 fun main() {
-    val words = Words()
-    with(words) {
-        // The following two lines should compile:
-         "one".record()
-        +"two"
+    val list = listOf(1, 2, 3)
+
+    filterNonZero(list).toString() eq "[1, 2, 3]"
+    filterNonZeroGenerated(list).toString() eq "[1, 2, 3]"
+}
+
+inline fun <T> Iterable<T>.filter(predicate: (T) -> Boolean): List<T> {
+    val destination = ArrayList<T>()
+    for (element in this) {
+        if (predicate(element)) {
+            destination.add(element)
+        }
     }
-    words.toString() eq "[one, two]"
+    return destination
 }
 
 infix fun <T> T.eq(other: T) {
