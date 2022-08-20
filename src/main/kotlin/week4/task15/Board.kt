@@ -6,6 +6,13 @@ data class Cell(val i: Int, val j: Int) {
 
 enum class Direction {
     UP, DOWN, RIGHT, LEFT;
+
+    fun reversed() = when (this) {
+        UP -> DOWN
+        DOWN -> UP
+        RIGHT -> LEFT
+        LEFT -> RIGHT
+    }
 }
 
 interface SquareBoard {
